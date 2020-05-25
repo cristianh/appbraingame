@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Board-Game</h1>
-   
-    <ventanaprop ></ventanaprop>
+
+    <ventanaprop></ventanaprop>
     <div id="board-game">
       <cardflid
         v-for="(n, index, key) in 12"

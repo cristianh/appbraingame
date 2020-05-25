@@ -144,26 +144,29 @@ export default {
             this.$store.state.PuntosJugadores[1]
           ) {
             alert("El ganador es: " + this.$store.state.JugadorActual[0]);
-          } else {
+          } else if (
+            this.$store.state.PuntosJugadores[0] ==
+            this.$store.state.PuntosJugadores[1]
+          ) {
             alert("El juego a terminado en empate!");
+          } else {
+            alert("No hay ganador.!");
           }
         }, 2000);
       }
     },
     imagenCard: function(event) {
-      
       //event.target.removeEventListener("click",this.imagenCard,true);
       this.img = this.imgs2[this.imgRandom - 1].src;
       this.carName = this.imgs2[this.imgRandom - 1].name;
       event.target.src = this.img;
-      
+
       this.$emit("alertParent", this.carName);
       this.$store.state.nombreCard.push(this.carName);
       this.$store.state.carDestapada.push(event.target);
       this.cardcheck1 = this.imgs2[this.imgRandom - 1].cardcheck;
-      document.getElementById(event.target.id).style.pointerEvents="none";
+      document.getElementById(event.target.id).style.pointerEvents = "none";
       if (this.$store.state.nombreCard.length == 2) {
-       
         console.log(this.cardcheck1 + " " + this.cardcheckTemporal);
         console.log("entra");
         setTimeout(() => {
@@ -185,8 +188,12 @@ export default {
             this.$store.state.carDestapada[1].src = require("@/assets/img/black.png");
             console.log(this.$store.state.carDestapada[0].id);
             console.log(this.$store.state.carDestapada[1].id);
-            document.getElementById(this.$store.state.carDestapada[0].id).style.pointerEvents="auto";
-            document.getElementById(this.$store.state.carDestapada[1].id).style.pointerEvents="auto";
+            document.getElementById(
+              this.$store.state.carDestapada[0].id
+            ).style.pointerEvents = "auto";
+            document.getElementById(
+              this.$store.state.carDestapada[1].id
+            ).style.pointerEvents = "auto";
             this.$store.state.nombreCard = [];
             this.$store.state.carDestapada = [];
             this.cardcheckTemporal = "";
