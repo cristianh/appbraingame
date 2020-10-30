@@ -1,14 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+// import Home from "../views/Home.vue";
+import BoardGame from "@/components/BoardGame";
+//import FormValidate from "../components/FormValidat.vue";
+import exampleSocket from "../components/socketeexample.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "boardgame",
+    component: BoardGame
+  },
+  {
+    path: "/example",
+    name: "exampleSocket",
+    component: exampleSocket
   },
   {
     path: "/about",

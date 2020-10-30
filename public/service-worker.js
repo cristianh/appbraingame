@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.4390695fbe09ddf76ea928e465a47a15.js"
+  "/precache-manifest.e3e2c214d11148164236ab3c4deef4a0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "appbraingame"});

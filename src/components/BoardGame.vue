@@ -14,6 +14,16 @@
         >Card {{ n }}</cardflid
       >
     </div>
+    <br />
+    <div class="center">
+      <vs-row>
+        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="6">
+        </vs-col>
+        <vs-col vs-type="flex" vs-justify="center" vs-align="center" w="2">
+          <vs-button style="margin-left:-52px" @click="reload">RECARGAR</vs-button>
+        </vs-col>
+      </vs-row>
+    </div>
   </div>
 </template>
 
@@ -23,15 +33,29 @@ export default {
   props: {
     id: String
   },
+  sockets: {
+    connect() {
+      console.log("socket connected");
+    },
+    customEmit() {
+      console.log(
+        'this method was fired by the socket server. eg: io.emit("customEmit", data)'
+      );
+    }
+  },
   created() {
     this.numberRamdomImg.sort(() => 0.5 - Math.random(1, 12));
   },
   data() {
     return {
+       page: 1,
       numberRamdomImg: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     };
   },
   methods: {
+    reload() {
+      window.location.reload();
+    },
     click(name) {
       console.log(".................." + name);
       this.CardNameSheet[0] = name;
